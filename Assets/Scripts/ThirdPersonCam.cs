@@ -17,7 +17,8 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Update(){
         // rotate orientation
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        Vector3 viewDir = new Vector3(transform.position.x, player.position.y, transform.position.z) - player.position;
+
         orientation.forward = viewDir.normalized;
 
         //rotate player object
