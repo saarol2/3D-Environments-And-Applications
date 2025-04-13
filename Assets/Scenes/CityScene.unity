@@ -18593,6 +18593,7 @@ GameObject:
   - component: {fileID: 729462390}
   - component: {fileID: 729462389}
   - component: {fileID: 729462391}
+  - component: {fileID: 729462392}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -18665,6 +18666,28 @@ MonoBehaviour:
   jumpKey: 32
   sprintKey: 304
   orientation: {fileID: 933183124}
+--- !u!95 &729462392
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729462387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 549c2d381755b904d9e21c3b84d4a083, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &735554855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 635547659545568360, guid: abfcd8555ea05bd47881dc6281323cb7, type: 3}
@@ -49848,10 +49871,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterModel
       objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.008262443
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.9958241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.08606387
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.029309502
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180.654
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.4279785
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646396693868516732, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 9.899002
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 425591cfd39ebe44ea1e17960d86b4ce, type: 2}
+      objectReference: {fileID: 9100000, guid: 549c2d381755b904d9e21c3b84d4a083, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
