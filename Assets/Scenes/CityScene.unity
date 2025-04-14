@@ -18753,6 +18753,7 @@ MonoBehaviour:
   jumpKey: 32
   sprintKey: 304
   orientation: {fileID: 933183124}
+  animator: {fileID: 729462392}
 --- !u!95 &729462392
 Animator:
   serializedVersion: 7
@@ -18762,7 +18763,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729462387}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 92aee97fb35ac024a8030e874b6609ec, type: 3}
   m_Controller: {fileID: 9100000, guid: 549c2d381755b904d9e21c3b84d4a083, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
