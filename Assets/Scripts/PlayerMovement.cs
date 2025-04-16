@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && readyToJump)
         {
             readyToJump = false;
+            animator.SetTrigger("JumpTrigger");
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
@@ -97,5 +98,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+        animator.ResetTrigger("JumpTrigger");
     }
 }
