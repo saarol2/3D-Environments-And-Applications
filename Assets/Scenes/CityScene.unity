@@ -12229,13 +12229,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 425242383}
+  grandpaTransform: {fileID: 856793532}
   npcAnimator: {fileID: 347703233}
   npcAudioSource: {fileID: 712785687}
   voiceLine: {fileID: 8300000, guid: 6d19544cbc59ce540a43f2b4ae554011, type: 3}
   activationDistance: 6
   rotationSpeed: 2
   followDistance: 2
-  moveSpeed: 3
+  moveSpeed: 4
+  stopNearGrandpaDistance: 2.5
 --- !u!4 &352402262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d1fea473efa2c64289df0677adc258b, type: 3}
@@ -24898,7 +24900,7 @@ GameObject:
   - component: {fileID: 712785688}
   - component: {fileID: 712785687}
   m_Layer: 7
-  m_Name: Audio Source
+  m_Name: WomanAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24961,7 +24963,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -28962,11 +28964,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 425242383}
   grandpaTransform: {fileID: 856793532}
-  grandpaAnimator: {fileID: 856793531}
   grandpaAudioSource: {fileID: 1686290006}
-  grandpaVoiceLine: {fileID: 8300000, guid: 08bf60f002a1cd64d8a405009b315ba8, type: 3}
+  initialVoiceLine: {fileID: 8300000, guid: 08bf60f002a1cd64d8a405009b315ba8, type: 3}
+  daughterReturnedVoiceLine: {fileID: 8300000, guid: b2c6098e41311724aaaa2d3eaa832673, type: 3}
   activationDistance: 6
   rotationSpeed: 2
+  daughterTransform: {fileID: 347703234}
+  daughterDistanceThreshold: 3
 --- !u!1 &858905313
 GameObject:
   m_ObjectHideFlags: 0
@@ -63912,7 +63916,7 @@ GameObject:
   - component: {fileID: 1686290007}
   - component: {fileID: 1686290006}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: GrandpaAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63975,7 +63979,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

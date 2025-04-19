@@ -4,48 +4,73 @@ public class GrandpaQuest : MonoBehaviour
 {
     public Transform player;
     public Transform grandpaTransform;
-    public Animator grandpaAnimator;
     public AudioSource grandpaAudioSource;
-    public AudioClip grandpaVoiceLine;
+
+    public AudioClip initialVoiceLine;
+    public AudioClip daughterReturnedVoiceLine;
 
     public float activationDistance = 6f;
     public float rotationSpeed = 2f;
 
+    public Transform daughterTransform;
+    public float daughterDistanceThreshold = 5f;
+
     private bool hasInteracted = false;
+    private bool daughterReturned = false;
 
     void Update()
     {
-        float distance = Vector3.Distance(grandpaTransform.position, player.position);
+        float playerDistance = Vector3.Distance(grandpaTransform.position, player.position);
+        float daughterDistance = daughterTransform != null
+            ? Vector3.Distance(grandpaTransform.position, daughterTransform.position)
+            : Mathf.Infinity;
 
-        if (distance <= activationDistance)
+        if (daughterReturned && daughterDistance <= daughterDistanceThreshold)
         {
-            Vector3 direction = (player.position - grandpaTransform.position).normalized;
-            direction.y = 0;
+            FaceTarget(daughterTransform.position);
+        }
+        else if (playerDistance <= activationDistance)
+        {
+            FaceTarget(player.position);
+        }
 
-            if (direction != Vector3.zero)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(-direction);
-                grandpaTransform.rotation = Quaternion.Slerp(grandpaTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-            }
+        if (!daughterReturned && daughterDistance <= daughterDistanceThreshold)
+        {
+            daughterReturned = true;
+            hasInteracted = false;
+        }
+        if ((playerDistance <= activationDistance || daughterReturned) && !hasInteracted)
+        {
+            hasInteracted = true;
+            TriggerInteraction();
+        }
+    }
 
-            if (!hasInteracted)
-            {
-                hasInteracted = true;
-                TriggerInteraction();
-            }
+    void FaceTarget(Vector3 targetPosition)
+    {
+        Vector3 direction = -(targetPosition - grandpaTransform.position).normalized;
+        direction.y = 0;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            grandpaTransform.rotation = Quaternion.Slerp(grandpaTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
     void TriggerInteraction()
     {
-        if (grandpaAnimator != null)
+        if (grandpaAudioSource != null)
         {
-            grandpaAnimator.SetTrigger("Wave");
-        }
+            if (daughterReturned && daughterReturnedVoiceLine != null)
+            {
+                grandpaAudioSource.clip = daughterReturnedVoiceLine;
+            }
+            else if (initialVoiceLine != null)
+            {
+                grandpaAudioSource.clip = initialVoiceLine;
+            }
 
-        if (grandpaAudioSource != null && grandpaVoiceLine != null)
-        {
-            grandpaAudioSource.clip = grandpaVoiceLine;
             grandpaAudioSource.Play();
         }
     }
