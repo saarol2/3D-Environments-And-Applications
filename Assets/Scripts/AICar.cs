@@ -25,6 +25,8 @@ public class AICar : MonoBehaviour
     public float slowDownDistance = 8f;
     public float stopDistance = 4f;
 
+    public AudioSource brakeSound;
+
     void Start()
     {
         HideWaypoints();
@@ -48,6 +50,10 @@ public class AICar : MonoBehaviour
             }
             else if (distanceToCharacter < slowDownDistance)
             {
+                if (!brakeSound.isPlaying)
+                {
+                    brakeSound.Play();
+                }
                 speedModifier = 0.4f; // hidasta
             }
         }
