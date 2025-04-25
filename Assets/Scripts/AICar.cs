@@ -15,9 +15,9 @@ public class AICar : MonoBehaviour
     [Header("Yield Settings")]
     public float yieldCheckDistanceLong = 10f;
     public float yieldCheckDistanceShort = 7f;
-    public LayerMask carLayer; // Anna Inspectorissa esim. "AI Car" layer
+    public LayerMask carLayer; 
     public bool debugDraw = true;
-    public Transform raycastOrigin; // Yksi tyhjä GameObject lähtökohdaksi
+    public Transform raycastOrigin; 
 
     [Header("Character Detection")]
     public Transform character;
@@ -46,7 +46,7 @@ public class AICar : MonoBehaviour
         {
             if (distanceToCharacter < stopDistance)
             {
-                return; // pysähdy
+                return; 
             }
             else if (distanceToCharacter < slowDownDistance)
             {
@@ -54,7 +54,7 @@ public class AICar : MonoBehaviour
                 {
                     brakeSound.Play();
                 }
-                speedModifier = 0.4f; // hidasta
+                speedModifier = 0.4f; 
             }
         }
 
